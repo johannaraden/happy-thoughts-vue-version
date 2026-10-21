@@ -13,16 +13,17 @@ const props = defineProps({
   time: String
 })
 
+const messageUrl = 'https://project-happy-thoughts-api-tfq9.onrender.com'
+
+
 const emit = defineEmits(['liked'])
 
 const likeClick = async () => {
   try {
     const response = await fetch(
-      `https://technigo-thoughts.herokuapp.com/${props.id}/like`,
+      `${messageUrl}/${props.id}/like`,
       {
-        method: 'POST',
-        body: '',
-        headers: { 'Content-Type': 'application/json' }
+        method: 'POST'
       }
     )
 
@@ -50,13 +51,18 @@ const heartClass = computed(() =>
     <h4>{{ message }}</h4>
 
     <div class="card-details">
-      <span :class="heartClass" @click="likeClick">
-        <img
-          class="heart"
-          alt="heart-icon"
-          src="https://img.icons8.com/cotton/64/000000/like--v1.png"
-        />
-      </span>
+      <button
+  type="button"
+  :class="heartClass"
+  aria-label="Like this thought"
+  @click="likeClick"
+>
+  <img
+    class="heart"
+    alt=""
+    src="https://img.icons8.com/cotton/64/000000/like--v1.png"
+  />
+</button>
 
       <p class="like-p">x {{ hearts }}</p>
       <p class="time">{{ moment(time).fromNow() }}</p>

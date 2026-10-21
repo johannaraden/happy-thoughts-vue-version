@@ -1,15 +1,28 @@
 <script setup>
-import { ref } from 'vue'
 import MessageCard from './MessageCard.vue'
-import './MessageList.css'
 
-const count = ref(0)
+defineProps({
+  messages: {
+    type: Array,
+    required: true
+  }
+})
+
+const emit = defineEmits(['liked'])
 </script>
 
 <template>
-  <div class="messages">
-    <MessageCard />
-  <MessageCard />
-  </div>
+  <section class="messages">
+    <MessageCard
+      v-for="message in messages"
+      :key="message._id"
+      :id="message._id"
+      :message="message.message"
+      :hearts="message.hearts"
+      :time="message.createdAt"
+      @liked="emit('liked', $event)"
+    />
+  </section>
 </template>
 
+<style src="./MessageList.css" scoped></style>

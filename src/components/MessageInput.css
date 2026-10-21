@@ -1,24 +1,113 @@
-.message-form {
+  .page {
+    max-width: 760px;
+    margin: 2em auto;
+    padding: 2em 1em 3em;
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    box-shadow: 7px 7px 0 1px var(--ink);
+    animation: rise 0.6s ease both;
+  }
+
+   .message-form__title{
+    margin: 0;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #6f7581;
+    letter-spacing: 0.02em;
+  }
+
+    .message-form__title span {
+    background: linear-gradient(transparent 62%, var(--pink) 62%);
+    padding: 0 0.1em;
+  }
+
+
+   .message-form {
+    position: relative;
     display: flex;
     flex-direction: column;
-    background-color: rgb(233, 233, 233);
+    align-items: center;
+    width: 100%;
+    max-width: 560px;
+    margin: 2em auto;
+    padding: 1.6em 1em 1.4em;
+    background-color: var(--panel);
+    border: 1px solid var(--ink);
+    box-shadow: 5px 5px 0 0 var(--ink);
+  }
+
+.message-form__title span {
+  background: linear-gradient(transparent 62%, var(--pink) 62%);
+  padding: 0 0.1em;
 }
+
+ .message-form_prompt {
+    margin: 0 0 1em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 1.15em;
+    font-weight: 700;
+    color: var(--muted);
+    text-align: center;
+  }
+
+.thought {
+ width: min(480px, 92%);
+    height: 5em;
+    padding: 1em;
+    background-color: var(--paper);
+    border: 1px solid var(--ink);
+    font: inherit;
+    resize: vertical;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .thought::placeholder {
+    color: #c3c6cc;
+  }
+
+  .thought:focus {
+    outline: none;
+    transform: translate(-3px, -3px);
+    box-shadow: 4px 4px 0 0 var(--pink-deep);
+  }
 
 .submit-button {
-    margin-top: 1.8em;
-    padding: 1em 1.2em ;
-    border-radius: 20px;
-    border: none;
+   margin: 1.8em auto 1em;
+    padding: 1em 1.2em;
     width: 50%;
+    min-width: 200px;
+    border: 1px solid var(--ink);
+    border-radius: 20px;
+    background-color: var(--pink);
+    color: var(--paper);
+    font: 16px 'Courier New', Courier, monospace;
     text-align: center;
-    background-color: rgb(255, 166, 166);
-    font-family: 'Courier New', Courier, monospace;
-}
-
-.submit-button:hover {
     cursor: pointer;
-    background: rgb(240, 133, 133);
-}
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.2s ease;
+  }
+
+  .submit-button:hover:not(:disabled) {
+    background-color: var(--pink-hover);
+    transform: translate(-2px, -2px);
+    box-shadow: 3px 3px 0 0 var(--ink);
+  }
+
+  .submit-button:active:not(:disabled) {
+    transform: translate(0, 0);
+    box-shadow: none;
+  }
+
+  .submit-button:focus-visible {
+    outline: 2px dashed var(--ink);
+    outline-offset: 4px;
+  }
+
+  .submit-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
 
 .heart {
     transform: scale(0.4);
