@@ -56,7 +56,7 @@ const handleSubmit = async () => {
       >
         Send Happy Thought
       </button>
-    <div class="counter" id="counter" aria-live="polite">0/140</div>
+    <div class="counter" id="counter" aria-live="polite">{{ message.length }}/140</div>
   </form>
 
   <ul class="messages" id="messages" aria-label="Happy thoughts"></ul>
